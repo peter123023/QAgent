@@ -1,0 +1,74 @@
+# 忽略虚拟环境及项目产生的临时文件
+.venv/
+.idea/
+.claude/
+.vscode/
+.trae/
+__pycache__/
+.DS_Store
+.pytest_cache
+
+# 忽略log文件，但保留.gitkeep和子目录
+python12/
+logs/*
+!logs/.gitkeep
+!logs/*/
+logs/*/*
+!logs/*/.gitkeep
+# 忽略.env配置文件(但保留.env.example示例文件)
+.env
+.sql
+static_files/img/
+.bak
+# 忽略所有 app/*/migrations/ 目录下的所有内容 (包括文件和子目录)
+apps/*/migrations/*
+# 使用否定模式，例外地跟踪 __init__.py 文件
+!apps/*/migrations/__init__.py
+
+# 忽略 allure-static 下的所有文件（运行时生成）
+media/allure-static/*
+!media/allure-static/.gitkeep
+
+# 忽略 AI 录屏文件，但保留.gitkeep
+media/ai_recording/*
+!media/ai_recording/.gitkeep
+
+# 忽略需求文档上传的文件，但保留.gitkeep
+media/requirement_docs/*
+!media/requirement_docs/.gitkeep
+
+# 忽略接口测试运行时产生的 Allure 报告文件，但保留.gitkeep文件
+media/api-testing/allure-results/*
+!media/api-testing/allure-results/.gitkeep
+media/api-testing/allure-reports/*
+!media/api-testing/allure-reports/.gitkeep
+media/api-testing/allure-static/*
+!media/api-testing/allure-static/.gitkeep
+
+# 忽略 APP 自动化运行时产生的文件，但保留.gitkeep文件
+media/app-automation/allure-results/*
+!media/app-automation/allure-results/.gitkeep
+media/app-automation/allure-reports/*
+!media/app-automation/allure-reports/.gitkeep
+media/app-automation/screenshots/*
+!media/app-automation/screenshots/.gitkeep
+
+# 忽略APP自动化模板文件
+apps/app_automation/Template/**
+!apps/app_automation/Template/
+web/node_modules/
+web/.DS_Store
+web/*.log
+web/dist/
+
+
+# Docker
+Dockerfile*
+docker-compose*.yml
+.dockerignore
+nginx.conf
+Makefile
+build-multiplatform.sh
+CLAUDE.md
+.trae/
+.claude
