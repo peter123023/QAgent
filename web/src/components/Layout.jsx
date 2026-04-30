@@ -30,7 +30,13 @@ import {
   GlobalOutlined,
   CodeOutlined,
   ApiFilled,
-  ThunderboltFilled
+  ThunderboltFilled,
+  ToolOutlined,
+  SwapOutlined,
+  CalculatorOutlined,
+  BarcodeOutlined,
+  SafetyCertificateOutlined,
+  DatabaseOutlined
 } from '@ant-design/icons';
 
 const { Header, Sider, Content } = Layout;
@@ -48,6 +54,7 @@ const LayoutComponent = () => {
   const topMenuItems = [
     { key: '/api-testing', label: '接口自动化测试', icon: <ApiOutlined /> },
     { key: '/ai-generation', label: 'AI 用例生成', icon: <RobotOutlined /> },
+    { key: '/test-tools', label: '测试工具', icon: <ToolOutlined /> },
     { key: '/configuration', label: '设置', icon: <SettingOutlined /> }
   ];
 
@@ -59,6 +66,7 @@ const LayoutComponent = () => {
     else if (path.startsWith('/app-automation')) setCurrentModule('app-automation');
     else if (path.startsWith('/ai-intelligent-mode')) setCurrentModule('ai-intelligent-mode');
     else if (path.startsWith('/configuration')) setCurrentModule('configuration');
+    else if (path.startsWith('/test-tools')) setCurrentModule('test-tools');
     else setCurrentModule('');
   }, [location.pathname]);
 
@@ -97,7 +105,8 @@ const LayoutComponent = () => {
       'ui-automation': t('modules.uiAutomation'),
       'app-automation': 'APP自动化测试',
       'ai-intelligent-mode': t('modules.aiIntelligentMode'),
-      'configuration': '设置'
+      'configuration': '设置',
+      'test-tools': t('modules.testTools')
     };
     return map[currentModule] || '';
   };
@@ -200,6 +209,32 @@ const LayoutComponent = () => {
         { key: '/configuration/coze', label: t('menu.cozeConfig'), icon: <ApiOutlined /> }
       ];
     }
+    if (currentModule === 'test-tools') {
+      return [
+        {
+          key: 'general-tools',
+          label: t('menu.generalTools'),
+          icon: <ToolOutlined />,
+          children: [
+            { key: '/test-tools/data-generator', label: t('menu.testDataGenerator'), icon: <DatabaseOutlined /> },
+            { key: '/test-tools/encoder-decoder', label: t('menu.encoderDecoder'), icon: <SwapOutlined /> },
+            { key: '/test-tools/regex-tester', label: t('menu.regexTester'), icon: <CodeOutlined /> },
+            { key: '/test-tools/format-converter', label: t('menu.formatConverter'), icon: <BarcodeOutlined /> },
+            { key: '/test-tools/timestamp-converter', label: t('menu.timestampConverter'), icon: <ClockCircleOutlined /> }
+          ]
+        },
+        {
+          key: 'api-tools',
+          label: t('menu.apiTools'),
+          icon: <ApiOutlined />,
+          children: [
+            { key: '/test-tools/signature-generator', label: t('menu.signatureGenerator'), icon: <SafetyCertificateOutlined /> },
+            { key: '/test-tools/cookie-parser', label: t('menu.cookieParser'), icon: <FileTextOutlined /> },
+            { key: '/test-tools/mock-generator', label: t('menu.mockGenerator'), icon: <ThunderboltOutlined /> }
+          ]
+        }
+      ];
+    }
     return [];
   };
 
@@ -254,8 +289,9 @@ const LayoutComponent = () => {
             style={{
               border: 'none',
               lineHeight: '62px',
-              minWidth: 400
+              minWidth: 600
             }}
+            overflowedIndicator={null}
             theme="light"
           />
         </div>

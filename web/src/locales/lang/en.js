@@ -40,14 +40,26 @@ export default {
     uiEnvConfig: 'UI Environment Config',
     aiModeConfig: 'AI Mode Config',
     scheduledTaskConfig: 'Scheduled Task Config',
-    cozeConfig: 'Coze Config'
+    cozeConfig: 'Coze Config',
+    testTools: 'Test Tools',
+    generalTools: 'General Tools',
+    testDataGenerator: 'Test Data Generator',
+    encoderDecoder: 'Encoder/Decoder',
+    regexTester: 'Regex Tester',
+    formatConverter: 'Format Converter',
+    timestampConverter: 'Timestamp Converter',
+    apiTools: 'API Tools',
+    signatureGenerator: 'Signature Generator',
+    cookieParser: 'Cookie/Header Parser',
+    mockGenerator: 'Mock Generator'
   },
   modules: {
     aiGeneration: 'AI Generation',
     apiTesting: 'API Testing',
     uiAutomation: 'UI Automation',
     aiIntelligentMode: 'AI Intelligent Mode',
-    configuration: 'Configuration'
+    configuration: 'Configuration',
+    testTools: 'Test Tools'
   },
   auth: {
     login: 'Login',

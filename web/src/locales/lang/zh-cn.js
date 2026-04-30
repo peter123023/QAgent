@@ -40,14 +40,26 @@ export default {
     uiEnvConfig: 'UI环境配置',
     aiModeConfig: 'AI模式配置',
     scheduledTaskConfig: '定时任务配置',
-    cozeConfig: 'Coze配置'
+    cozeConfig: 'Coze配置',
+    testTools: '测试工具',
+    generalTools: '通用工具',
+    testDataGenerator: '测试数据生成器',
+    encoderDecoder: '编解码工具',
+    regexTester: '正则表达式测试器',
+    formatConverter: '格式转换工具',
+    timestampConverter: '时间戳转换工具',
+    apiTools: '接口工具',
+    signatureGenerator: '接口签名生成器',
+    cookieParser: 'Cookie/Header解析工具',
+    mockGenerator: '快速Mock生成'
   },
   modules: {
     aiGeneration: 'AI生成',
     apiTesting: '接口测试',
     uiAutomation: 'UI自动化',
     aiIntelligentMode: 'AI智能模式',
-    configuration: '配置中心'
+    configuration: '配置中心',
+    testTools: '测试工具'
   },
   auth: {
     login: '登录',
