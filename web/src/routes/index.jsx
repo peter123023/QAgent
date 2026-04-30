@@ -35,6 +35,15 @@ import TimestampConverter from '../pages/test-tools/TimestampConverter';
 import SignatureGenerator from '../pages/test-tools/SignatureGenerator';
 import CookieParser from '../pages/test-tools/CookieParser';
 import MockGenerator from '../pages/test-tools/MockGenerator';
+import DiffCompare from '../pages/test-tools/DiffCompare';
+import CronExpression from '../pages/test-tools/CronExpression';
+import QRCodeGenerator from '../pages/test-tools/QRCodeGenerator';
+import ColorConverter from '../pages/test-tools/ColorConverter';
+import HttpStatusCode from '../pages/test-tools/HttpStatusCode';
+import StringProcessor from '../pages/test-tools/StringProcessor';
+import FileSizeCalculator from '../pages/test-tools/FileSizeCalculator';
+import IpAddressTool from '../pages/test-tools/IpAddressTool';
+import RandomGenerator from '../pages/test-tools/RandomGenerator';
 import { useSelector } from 'react-redux';
 
 // 认证保护组件
@@ -181,14 +190,23 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       { index: true, element: <Navigate to="data-generator" replace /> },
-      { path: 'data-generator', element: <TestDataGenerator /> },
-      { path: 'encoder-decoder', element: <EncoderDecoder /> },
-      { path: 'regex-tester', element: <RegexTester /> },
-      { path: 'format-converter', element: <FormatConverter /> },
-      { path: 'timestamp-converter', element: <TimestampConverter /> },
-      { path: 'signature-generator', element: <SignatureGenerator /> },
-      { path: 'cookie-parser', element: <CookieParser /> },
-      { path: 'mock-generator', element: <MockGenerator /> }
+      { path: 'data-generator', element: <TempRoute><TestDataGenerator /></TempRoute> },
+      { path: 'encoder-decoder', element: <TempRoute><EncoderDecoder /></TempRoute> },
+      { path: 'regex-tester', element: <TempRoute><RegexTester /></TempRoute> },
+      { path: 'format-converter', element: <TempRoute><FormatConverter /></TempRoute> },
+      { path: 'timestamp-converter', element: <TempRoute><TimestampConverter /></TempRoute> },
+      { path: 'signature-generator', element: <TempRoute><SignatureGenerator /></TempRoute> },
+      { path: 'cookie-parser', element: <TempRoute><CookieParser /></TempRoute> },
+      { path: 'mock-generator', element: <TempRoute><MockGenerator /></TempRoute> },
+      { path: 'diff-compare', element: <TempRoute><DiffCompare /></TempRoute> },
+      { path: 'cron-expression', element: <TempRoute><CronExpression /></TempRoute> },
+      { path: 'qrcode-generator', element: <TempRoute><QRCodeGenerator /></TempRoute> },
+      { path: 'color-converter', element: <TempRoute><ColorConverter /></TempRoute> },
+      { path: 'http-status-code', element: <TempRoute><HttpStatusCode /></TempRoute> },
+      { path: 'string-processor', element: <TempRoute><StringProcessor /></TempRoute> },
+      { path: 'file-size-calculator', element: <TempRoute><FileSizeCalculator /></TempRoute> },
+      { path: 'ip-address-tool', element: <TempRoute><IpAddressTool /></TempRoute> },
+      { path: 'random-generator', element: <TempRoute><RandomGenerator /></TempRoute> }
     ]
   }
 ]);

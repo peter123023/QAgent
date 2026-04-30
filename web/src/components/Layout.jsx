@@ -36,7 +36,10 @@ import {
   CalculatorOutlined,
   BarcodeOutlined,
   SafetyCertificateOutlined,
-  DatabaseOutlined
+  DatabaseOutlined,
+  GithubOutlined,
+  QrcodeOutlined,
+  BgColorsOutlined
 } from '@ant-design/icons';
 
 const { Header, Sider, Content } = Layout;
@@ -220,7 +223,11 @@ const LayoutComponent = () => {
             { key: '/test-tools/encoder-decoder', label: t('menu.encoderDecoder'), icon: <SwapOutlined /> },
             { key: '/test-tools/regex-tester', label: t('menu.regexTester'), icon: <CodeOutlined /> },
             { key: '/test-tools/format-converter', label: t('menu.formatConverter'), icon: <BarcodeOutlined /> },
-            { key: '/test-tools/timestamp-converter', label: t('menu.timestampConverter'), icon: <ClockCircleOutlined /> }
+            { key: '/test-tools/timestamp-converter', label: t('menu.timestampConverter'), icon: <ClockCircleOutlined /> },
+            { key: '/test-tools/string-processor', label: '字符串处理工具', icon: <CodeOutlined /> },
+            { key: '/test-tools/random-generator', label: '随机数生成器', icon: <ThunderboltOutlined /> },
+            { key: '/test-tools/file-size-calculator', label: '文件大小计算器', icon: <CalculatorOutlined /> },
+            { key: '/test-tools/diff-compare', label: '文本/JSON对比工具', icon: <SwapOutlined /> }
           ]
         },
         {
@@ -230,7 +237,19 @@ const LayoutComponent = () => {
           children: [
             { key: '/test-tools/signature-generator', label: t('menu.signatureGenerator'), icon: <SafetyCertificateOutlined /> },
             { key: '/test-tools/cookie-parser', label: t('menu.cookieParser'), icon: <FileTextOutlined /> },
-            { key: '/test-tools/mock-generator', label: t('menu.mockGenerator'), icon: <ThunderboltOutlined /> }
+            { key: '/test-tools/mock-generator', label: t('menu.mockGenerator'), icon: <ThunderboltOutlined /> },
+            { key: '/test-tools/http-status-code', label: 'HTTP状态码查询', icon: <SafetyOutlined /> },
+            { key: '/test-tools/cron-expression', label: 'Cron表达式生成', icon: <ScheduleOutlined /> },
+            { key: '/test-tools/ip-address-tool', label: 'IP地址工具', icon: <GlobalOutlined /> }
+          ]
+        },
+        {
+          key: 'design-tools',
+          label: '设计工具',
+          icon: <AppstoreOutlined />,
+          children: [
+            { key: '/test-tools/qrcode-generator', label: '二维码生成器', icon: <QrcodeOutlined /> },
+            { key: '/test-tools/color-converter', label: '颜色转换工具', icon: <BgColorsOutlined /> }
           ]
         }
       ];
@@ -332,6 +351,40 @@ const LayoutComponent = () => {
             style={{ border: 'none', padding: '0 8px' }}
             theme="light"
           />
+          <div style={{
+            position: 'absolute',
+            bottom: 20,
+            left: 20,
+            width: 'calc(100% - 40px)',
+          }}>
+            <a
+              href="https://github.com/peter123023/QAgent"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                color: '#6b7280',
+                fontSize: 14,
+                textDecoration: 'none',
+                padding: '8px 12px',
+                borderRadius: 6,
+                transition: 'all 0.2s'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = '#f3f4f6';
+                e.currentTarget.style.color = '#1677ff';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = 'transparent';
+                e.currentTarget.style.color = '#6b7280';
+              }}
+            >
+              <GithubOutlined />
+              <span>GitHub</span>
+            </a>
+          </div>
         </Sider>
         <Content style={{ padding: '16px 48px' }}>
           <Outlet />
