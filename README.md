@@ -19,6 +19,7 @@ QAgent 是一个功能强大的智能自动测试平台，集成了 AI 需求分
 <div align="center">
   <img src=".github/images/111.png" alt="QAgent 界面截图" width="100%">
   <img src=".github/images/222.png" alt="QAgent 界面截图" width="100%">
+  <img src=".github/images/333.png" alt="QAgent 界面截图" width="100%">
 </div>
 
 ## ✨ 核心特性
