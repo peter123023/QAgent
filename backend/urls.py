@@ -29,6 +29,7 @@ urlpatterns = [
     path('api/requirement-analysis/', include('apps.requirement_analysis.urls')),
     path('api/', include('apps.api_testing.urls')),
     path('api/core/', include('apps.core.urls')),
+    path('api/agent/', include('apps.agent.urls')),
 ]
 
 if settings.DEBUG:

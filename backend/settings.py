@@ -51,6 +51,7 @@ LOCAL_APPS = [
     'apps.requirement_analysis',
     'apps.api_testing',
     'apps.core',
+    'apps.agent',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS

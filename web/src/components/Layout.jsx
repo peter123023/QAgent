@@ -11,6 +11,7 @@ import {
   SettingOutlined,
   LogoutOutlined,
   UserOutlined,
+  ThunderboltOutlined,
   DashboardOutlined,
   FolderOutlined,
   LinkOutlined,
@@ -26,7 +27,6 @@ import {
   BranchesOutlined,
   ScheduleOutlined,
   AppstoreOutlined,
-  ThunderboltOutlined,
   GlobalOutlined,
   CodeOutlined,
   ApiFilled,
@@ -57,6 +57,7 @@ const LayoutComponent = () => {
   const topMenuItems = [
     { key: '/api-testing', label: '接口自动化测试', icon: <ApiOutlined /> },
     { key: '/ai-generation', label: 'AI 用例生成', icon: <RobotOutlined /> },
+    { key: '/agent', label: 'Agent', icon: <ThunderboltOutlined /> },
     { key: '/test-tools', label: '测试工具', icon: <ToolOutlined /> },
     { key: '/configuration', label: '设置', icon: <SettingOutlined /> }
   ];
@@ -65,6 +66,7 @@ const LayoutComponent = () => {
     const path = location.pathname;
     if (path.startsWith('/api-testing')) setCurrentModule('api-testing');
     else if (path.startsWith('/ai-generation')) setCurrentModule('ai-generation');
+    else if (path.startsWith('/agent')) setCurrentModule('agent');
     else if (path.startsWith('/ui-automation')) setCurrentModule('ui-automation');
     else if (path.startsWith('/app-automation')) setCurrentModule('app-automation');
     else if (path.startsWith('/ai-intelligent-mode')) setCurrentModule('ai-intelligent-mode');
@@ -105,6 +107,7 @@ const LayoutComponent = () => {
     const map = {
       'ai-generation': t('modules.aiGeneration'),
       'api-testing': '接口自动化测试',
+      'agent': '智能测试 Agent',
       'ui-automation': t('modules.uiAutomation'),
       'app-automation': 'APP自动化测试',
       'ai-intelligent-mode': t('modules.aiIntelligentMode'),
@@ -201,6 +204,11 @@ const LayoutComponent = () => {
         { key: '/ai-intelligent-mode/testing', label: t('menu.aiIntelligentTesting'), icon: <ThunderboltOutlined /> },
         { key: '/ai-intelligent-mode/cases', label: t('menu.aiCaseManagement'), icon: <FileProtectOutlined /> },
         { key: '/ai-intelligent-mode/execution-records', label: t('menu.aiExecutionRecords'), icon: <HistoryOutlined /> }
+      ];
+    }
+    if (currentModule === 'agent') {
+      return [
+        { key: '/agent/chat', label: 'Agent 对话', icon: <ThunderboltOutlined /> }
       ];
     }
     if (currentModule === 'configuration') {
@@ -310,7 +318,6 @@ const LayoutComponent = () => {
               lineHeight: '62px',
               minWidth: 600
             }}
-            overflowedIndicator={null}
             theme="light"
           />
         </div>

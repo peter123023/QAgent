@@ -2,6 +2,7 @@ import { createBrowserRouter, Navigate } from 'react-router-dom';
 import React from 'react';
 import Layout from '../components/Layout';
 import Login from '../pages/auth/Login';
+import Register from '../pages/auth/Register';
 import Home from '../pages/Home';
 import RequirementAnalysisView from '../pages/ai-generation/RequirementAnalysisView';
 import TestCaseList from '../pages/testcases/TestCaseList';
@@ -42,8 +43,9 @@ import ColorConverter from '../pages/test-tools/ColorConverter';
 import HttpStatusCode from '../pages/test-tools/HttpStatusCode';
 import StringProcessor from '../pages/test-tools/StringProcessor';
 import FileSizeCalculator from '../pages/test-tools/FileSizeCalculator';
-import IpAddressTool from '../pages/test-tools/IpAddressTool';
+
 import RandomGenerator from '../pages/test-tools/RandomGenerator';
+import AgentChat from '../pages/agent/AgentChat';
 import { useSelector } from 'react-redux';
 
 // 认证保护组件
@@ -86,6 +88,10 @@ const router = createBrowserRouter([
   {
     path: '/login',
     element: <Login />
+  },
+  {
+    path: '/register',
+    element: <Register />
   },
   {
       path: '/ai-generation',
@@ -174,6 +180,14 @@ const router = createBrowserRouter([
     ]
   },
   {
+      path: '/agent',
+      element: <Layout />,
+      children: [
+        { index: true, element: <Navigate to="chat" replace /> },
+        { path: 'chat', element: <ProtectedRoute><AgentChat /></ProtectedRoute> }
+      ]
+    },
+  {
       path: '/configuration',
       element: <Layout />,
       children: [
@@ -205,7 +219,7 @@ const router = createBrowserRouter([
       { path: 'http-status-code', element: <TempRoute><HttpStatusCode /></TempRoute> },
       { path: 'string-processor', element: <TempRoute><StringProcessor /></TempRoute> },
       { path: 'file-size-calculator', element: <TempRoute><FileSizeCalculator /></TempRoute> },
-      { path: 'ip-address-tool', element: <TempRoute><IpAddressTool /></TempRoute> },
+
       { path: 'random-generator', element: <TempRoute><RandomGenerator /></TempRoute> }
     ]
   }
