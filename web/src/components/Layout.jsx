@@ -107,7 +107,7 @@ const LayoutComponent = () => {
     const map = {
       'ai-generation': t('modules.aiGeneration'),
       'api-testing': '接口自动化测试',
-      'agent': '智能测试 Agent',
+      'agent': '',
       'ui-automation': t('modules.uiAutomation'),
       'app-automation': 'APP自动化测试',
       'ai-intelligent-mode': t('modules.aiIntelligentMode'),
@@ -207,9 +207,7 @@ const LayoutComponent = () => {
       ];
     }
     if (currentModule === 'agent') {
-      return [
-        { key: '/agent/chat', label: 'Agent 对话', icon: <ThunderboltOutlined /> }
-      ];
+      return [];
     }
     if (currentModule === 'configuration') {
       return [
@@ -332,68 +330,72 @@ const LayoutComponent = () => {
       </Header>
 
       <Layout>
-        <Sider
-          width={260}
-          style={{
-            background: '#fff',
-            borderRight: '1px solid #e5e7eb',
-            height: 'calc(100vh - 64px)',
-            position: 'sticky',
-            top: 64,
-            overflowY: 'auto'
-          }}
-        >
-          <div style={{ padding: '24px 16px 12px' }}>
-            <Text style={{ fontSize: 16, fontWeight: 600, color: '#6b7280' }}>
-              {getModuleName()}
-            </Text>
-          </div>
-          <Menu
-            mode="inline"
-            selectedKeys={[location.pathname]}
-            items={getSideMenuItems()}
-            onClick={({ key }) => {
-              if (key.startsWith('/')) navigate(key);
+        {currentModule !== 'agent' && (
+          <Sider
+            width={260}
+            style={{
+              background: '#fff',
+              borderRight: '1px solid #e5e7eb',
+              height: 'calc(100vh - 64px)',
+              position: 'sticky',
+              top: 64,
+              overflowY: 'auto'
             }}
-            style={{ border: 'none', padding: '0 8px' }}
-            theme="light"
-          />
-          <div style={{
-            position: 'absolute',
-            bottom: 20,
-            left: 20,
-            width: 'calc(100% - 40px)',
-          }}>
-            <a
-              href="https://github.com/peter123023/QAgent"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '8px',
-                color: '#6b7280',
-                fontSize: 14,
-                textDecoration: 'none',
-                padding: '8px 12px',
-                borderRadius: 6,
-                transition: 'all 0.2s'
+          >
+            {getModuleName() && (
+              <div style={{ padding: '24px 16px 12px' }}>
+                <Text style={{ fontSize: 16, fontWeight: 600, color: '#6b7280' }}>
+                  {getModuleName()}
+                </Text>
+              </div>
+            )}
+            <Menu
+              mode="inline"
+              selectedKeys={[location.pathname]}
+              items={getSideMenuItems()}
+              onClick={({ key }) => {
+                if (key.startsWith('/')) navigate(key);
               }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = '#f3f4f6';
-                e.currentTarget.style.color = '#1677ff';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = 'transparent';
-                e.currentTarget.style.color = '#6b7280';
-              }}
-            >
-              <GithubOutlined />
-              <span>GitHub</span>
-            </a>
-          </div>
-        </Sider>
-        <Content style={{ padding: '16px 48px' }}>
+              style={{ border: 'none', padding: '0 8px' }}
+              theme="light"
+            />
+            <div style={{
+              position: 'absolute',
+              bottom: 20,
+              left: 20,
+              width: 'calc(100% - 40px)',
+            }}>
+              <a
+                href="https://github.com/peter123023/QAgent"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  color: '#6b7280',
+                  fontSize: 14,
+                  textDecoration: 'none',
+                  padding: '8px 12px',
+                  borderRadius: 6,
+                  transition: 'all 0.2s'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = '#f3f4f6';
+                  e.currentTarget.style.color = '#1677ff';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = 'transparent';
+                  e.currentTarget.style.color = '#6b7280';
+                }}
+              >
+                <GithubOutlined />
+                <span>GitHub</span>
+              </a>
+            </div>
+          </Sider>
+        )}
+        <Content style={{ padding: currentModule === 'agent' ? 0 : '16px 48px' }}>
           <Outlet />
         </Content>
       </Layout>

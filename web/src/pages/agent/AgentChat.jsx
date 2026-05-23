@@ -6,7 +6,8 @@ import {
 import {
   SendOutlined, RobotOutlined, UserOutlined,
   ToolOutlined, HistoryOutlined, PlusOutlined,
-  DeleteOutlined, ReloadOutlined, LoadingOutlined
+  DeleteOutlined, ReloadOutlined, LoadingOutlined,
+  GithubOutlined
 } from '@ant-design/icons';
 import { useSelector } from 'react-redux';
 import api from '../../services/api';
@@ -117,10 +118,11 @@ const AgentChat = () => {
     setLoading(true);
 
     try {
-      const res = await api.post('/agent/chat/', {
-        session_id: currentSessionId,
-        message: text,
-      });
+      const payload = { message: text };
+      if (currentSessionId) {
+        payload.session_id = currentSessionId;
+      }
+      const res = await api.post('/agent/chat/', payload);
       const { session_id, reply, steps } = res.data;
 
       // 更新会话ID（如果是新会话）
@@ -195,7 +197,7 @@ const AgentChat = () => {
   const currentSession = sessions.find(s => s.session_id === currentSessionId);
 
   return (
-    <div style={{ display: 'flex', height: 'calc(100vh - 64px - 32px)' }}>
+    <div style={{ display: 'flex', height: 'calc(100vh - 64px)' }}>
       {/* 侧边会话列表 */}
       <div style={{
         width: 260,
@@ -262,6 +264,35 @@ const AgentChat = () => {
               ))
             )}
           </Spin>
+        </div>
+        <div style={{ padding: '12px 16px', borderTop: '1px solid #e5e7eb' }}>
+          <a
+            href="https://github.com/peter123023/QAgent"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '8px',
+              color: '#6b7280',
+              fontSize: 14,
+              textDecoration: 'none',
+              padding: '8px 12px',
+              borderRadius: 6,
+              transition: 'all 0.2s'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = '#f3f4f6';
+              e.currentTarget.style.color = '#1677ff';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = 'transparent';
+              e.currentTarget.style.color = '#6b7280';
+            }}
+          >
+            <GithubOutlined />
+            <span>GitHub</span>
+          </a>
         </div>
       </div>
 
