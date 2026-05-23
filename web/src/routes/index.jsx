@@ -46,6 +46,7 @@ import FileSizeCalculator from '../pages/test-tools/FileSizeCalculator';
 
 import RandomGenerator from '../pages/test-tools/RandomGenerator';
 import IPAddressTool from '../pages/test-tools/IPAddressTool';
+import JWTTool from '../pages/test-tools/JWTTool';
 import AgentChat from '../pages/agent/AgentChat';
 import { useSelector } from 'react-redux';
 
@@ -222,7 +223,8 @@ const router = createBrowserRouter([
       { path: 'file-size-calculator', element: <TempRoute><FileSizeCalculator /></TempRoute> },
 
       { path: 'random-generator', element: <TempRoute><RandomGenerator /></TempRoute> },
-      { path: 'ip-address-tool', element: <TempRoute><IPAddressTool /></TempRoute> }
+      { path: 'ip-address-tool', element: <TempRoute><IPAddressTool /></TempRoute> },
+      { path: 'jwt-tool', element: <TempRoute><JWTTool /></TempRoute> }
     ]
   }
 ]);

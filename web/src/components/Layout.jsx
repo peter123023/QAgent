@@ -246,7 +246,8 @@ const LayoutComponent = () => {
             { key: '/test-tools/mock-generator', label: t('menu.mockGenerator'), icon: <ThunderboltOutlined /> },
             { key: '/test-tools/http-status-code', label: 'HTTP状态码查询', icon: <SafetyOutlined /> },
             { key: '/test-tools/cron-expression', label: 'Cron表达式生成', icon: <ScheduleOutlined /> },
-            { key: '/test-tools/ip-address-tool', label: 'IP地址工具', icon: <GlobalOutlined /> }
+            { key: '/test-tools/ip-address-tool', label: 'IP地址工具', icon: <GlobalOutlined /> },
+            { key: '/test-tools/jwt-tool', label: 'JWT 解析工具', icon: <SafetyCertificateOutlined /> }
           ]
         },
         {
