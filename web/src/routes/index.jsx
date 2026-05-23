@@ -45,6 +45,7 @@ import StringProcessor from '../pages/test-tools/StringProcessor';
 import FileSizeCalculator from '../pages/test-tools/FileSizeCalculator';
 
 import RandomGenerator from '../pages/test-tools/RandomGenerator';
+import IPAddressTool from '../pages/test-tools/IPAddressTool';
 import AgentChat from '../pages/agent/AgentChat';
 import { useSelector } from 'react-redux';
 
@@ -220,7 +221,8 @@ const router = createBrowserRouter([
       { path: 'string-processor', element: <TempRoute><StringProcessor /></TempRoute> },
       { path: 'file-size-calculator', element: <TempRoute><FileSizeCalculator /></TempRoute> },
 
-      { path: 'random-generator', element: <TempRoute><RandomGenerator /></TempRoute> }
+      { path: 'random-generator', element: <TempRoute><RandomGenerator /></TempRoute> },
+      { path: 'ip-address-tool', element: <TempRoute><IPAddressTool /></TempRoute> }
     ]
   }
 ]);
